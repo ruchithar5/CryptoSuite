@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="p-4 bg-light rounded">
+  <h1 class="mb-3">CryptoSuite</h1>
+  <p class="lead">Educational app demonstrating classical ciphers: <strong>Caesar</strong>, <strong>Playfair</strong>, <strong>Hill (2×2)</strong>, and <strong>One-Time Pad (OTP)</strong>.</p>
+
+  <div class="row mt-4">
+    <div class="col-md-6">
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5>Quick start</h5>
+          <ol>
+            <li>Choose a cipher from the navigation.</li>
+            <li>Enter plaintext and a key (or generate one).</li>
+            <li>Encrypt or Decrypt and view results.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5>Suggested test values</h5>
+          <ul>
+            <li>Caesar: Plain = <code>ATTACK AT DAWN</code>, Shift = <code>3</code></li>
+            <li>Playfair: Keyword = <code>MONARCHY</code>, Plain = <code>BALLOON</code></li>
+            <li>Hill (2×2): Key = <code>3 3 2 5</code>, Plain = <code>HELP</code></li>
+            <li>OTP: Plain = <code>HELLO</code> (Generate key then decrypt using given key)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>One-Time Pad (OTP)</h2>
+<div class="card">
+  <div class="card-body">
+    <form method="post">
+      <div class="mb-3">
+        <label class="form-label">Text</label>
+        <textarea name="text" class="form-control" rows="2" placeholder="Plaintext for encryption or ciphertext for decryption"></textarea>
+      </div>
+
+      <div class="mb-3">
+        <button name="action" value="Generate & Encrypt" class="btn btn-primary">Generate Key & Encrypt</button>
+        <button name="action" value="Decrypt" class="btn btn-secondary">Decrypt (use key below)</button>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">OTP Key (numbers 0–25, comma-separated)</label>
+        <textarea name="keynums" class="form-control" rows="2" placeholder="Paste key numbers here to decrypt">{{ key_nums|join(',') if key_nums }}</textarea>
+      </div>
+    </form>
+
+    {% if result %}
+      <hr>
+      <h5>Result</h5>
+      <p class="form-control">{{ result }}</p>
+    {% endif %}
+
+    {% if key_nums %}
+      <h6 class="mt-3">Generated Key (save these numbers to decrypt)</h6>
+      <pre>{{ key_nums }}</pre>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

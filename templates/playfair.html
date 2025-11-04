@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Playfair Cipher</h2>
+<div class="card">
+  <div class="card-body">
+    <form method="post">
+      <div class="mb-3">
+        <label class="form-label">Keyword</label>
+        <input type="text" name="keyword" class="form-control" placeholder="e.g. MONARCHY" value="MONARCHY">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Text</label>
+        <textarea name="text" class="form-control" rows="3" placeholder="Enter plaintext or ciphertext"></textarea>
+      </div>
+      <button name="action" value="Encrypt" class="btn btn-primary">Encrypt</button>
+      <button name="action" value="Decrypt" class="btn btn-secondary">Decrypt</button>
+    </form>
+
+    {% if matrix %}
+    <hr>
+    <h5>5×5 Key Matrix</h5>
+    <pre style="font-size:1.05rem;">{% for r in matrix %}{{ r|join(' ') }}
+{% endfor %}</pre>
+
+    <h5>Pairs</h5>
+    <p>{{ pairs }}</p>
+    <h5>Cipher / Plain result</h5>
+    <p class="form-control">{{ result }}</p>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

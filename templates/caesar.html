@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Caesar Cipher</h2>
+<div class="card">
+  <div class="card-body">
+    <form method="post">
+      <div class="mb-3">
+        <label class="form-label">Text</label>
+        <textarea name="text" class="form-control" rows="3" placeholder="Enter plaintext or ciphertext"></textarea>
+      </div>
+      <div class="mb-3 row">
+        <div class="col-md-3">
+          <label class="form-label">Shift (integer)</label>
+          <input type="number" name="key" class="form-control" value="3">
+        </div>
+      </div>
+      <button name="action" value="Encrypt" class="btn btn-primary">Encrypt</button>
+      <button name="action" value="Decrypt" class="btn btn-secondary">Decrypt</button>
+    </form>
+
+    {% if result %}
+    <hr>
+    <h5>Result</h5>
+    <p class="form-control">{{ result }}</p>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
